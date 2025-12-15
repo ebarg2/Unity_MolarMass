@@ -1,0 +1,9 @@
+{
+    "liveServer.settings.port": 7778,  //localhost для мобильного браузера
+    "liveServer.settings.https": {
+    "enable": false,                                                                          // Для https (true)     
+    "cert": "/Users/makaka.org/Documents/bitbucket/sensor-camera/build_webgl/localhost.pem", // Для генерации сертификата и ключа
+    "key": "/Users/makaka.org/Documents/bitbucket/sensor-camera/build_webgl/localhost.key", // Обратиться к этой статье https://makaka.org/unity-tutorials/webgl-and-unity
+    "passphrase": "123456"
+    }
+}
