@@ -1,0 +1,299 @@
+:root
+{
+    --IOS_widht: 80vw;
+    --IOS_height: 75vh;
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #F4F4F4 !important;
+}
+
+#unity-container {
+    position: absolute
+}
+
+#unity-container.unity-desktop {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+#unity-container.unity-mobile {
+    position: fixed;
+    width: 100%;
+    height: 100%
+}
+
+#unity-canvas {
+    background: #ebebeb
+}
+
+.unity-mobile #unity-canvas {
+    width: 100%;
+    height: 100%
+}
+
+#unity-loading-bar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none
+}
+
+#unity-logo {
+    width: 154px;
+    height: 130px;
+    background: url('unity-logo-light.png') no-repeat center
+}
+
+#unity-progress-bar-empty {
+    width: 141px;
+    height: 18px;
+    margin-top: 10px;
+    margin-left: 6.5px;
+    background: url('progress-bar-empty-light.png') no-repeat center
+}
+
+#unity-progress-bar-full {
+    width: 0%;
+    height: 18px;
+    margin-top: 10px;
+    background: url('progress-bar-full-light.png') no-repeat center
+}
+
+#unity-footer {
+    position: relative
+}
+
+.unity-mobile #unity-footer {
+    display: none
+}
+
+#unity-logo-title-footer {
+    float: left;
+    width: 102px;
+    height: 38px;
+    background: url('unity-logo-title-footer.png') no-repeat center
+}
+
+#unity-build-title {
+    float: right;
+    margin-right: 10px;
+    line-height: 38px;
+    font-family: arial;
+    font-size: 18px
+}
+
+#unity-fullscreen-button {
+    cursor: pointer;
+    float: right;
+    width: 38px;
+    height: 38px;
+    background: url('fullscreen-button.png') no-repeat center
+}
+
+#unity-warning {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%);
+    background: white;
+    padding: 10px;
+    display: none
+}
+
+.orientation-title.android-only {
+    display: none;
+}
+
+/* Базовые стили для мобильных */
+.unity-mobile {
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+/* Светлый фон страницы */
+body {
+    background: #F4F4F4 !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Стили для ограничивающей рамки на iOS */
+#ios-frame {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--IOS_widht);
+    height: var(--IOS_height);
+    border-radius: 12px;
+    z-index: 9998;
+    pointer-events: none;
+    background: rgba(0, 255, 136, 0.1);
+}
+
+#ios-frame.active {
+    display: block;
+}
+
+/* Контейнер Unity с абсолютным позиционированием для iOS */
+#unity-container.ios-positioned {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: var(--IOS_widht) !important;
+    height: var(--IOS_height) !important;
+    z-index: 9999;
+}
+
+#unity-container.ios-positioned #unity-canvas {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+}
+
+/* Стили для ориентации */
+#orientation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+
+#orientation-overlay.portrait {
+    display: flex;
+}
+
+.orientation-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.orientation-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding: 0 20px;
+}
+
+.orientation-text {
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    max-width: 300px;
+    padding: 0 20px;
+}
+
+/* Кнопка для Android */
+.orientation-button {
+    background: #00ff88;
+    color: #1a1a1a;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+    min-width: 250px;
+}
+
+.orientation-button:hover {
+    background: #00e676;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+}
+
+.orientation-button:active {
+    transform: translateY(0);
+}
+
+/* Панель для iOS */
+.ios-rotate-panel {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 320px;
+    margin-top: 20px;
+}
+
+.ios-rotate-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    animation: rotate 2s ease-in-out infinite;
+}
+
+@keyframes rotate {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(90deg);
+    }
+}
+
+.ios-rotate-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.ios-instruction {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.orientation-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* Скрываем элементы для разных устройств */
+.android-only {
+    display: none;
+}
+
+.ios-only {
+    display: none;
+}
